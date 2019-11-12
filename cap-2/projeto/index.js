@@ -1,9 +1,12 @@
 const { GraphQLServer } = require('graphql-yoga')
 
 const typeDefs = `
+    scalar Date
+
     type Query {
         hello: String
         currentTime: String
+        currentDate: Date
     }
 `
 
@@ -15,6 +18,9 @@ const resolvers = {
         currentTime() {
             const time = new Date()
             return `${time.toLocaleDateString('pt-BR')} ${time.toLocaleTimeString('pt-BR')}`
+        },
+        currentDate() {
+            return new Date
         }
     }
 }

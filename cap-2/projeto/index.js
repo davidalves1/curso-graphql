@@ -3,6 +3,7 @@ const { GraphQLServer } = require('graphql-yoga')
 const typeDefs = `
     type Query {
         hello: String
+        currentTime: String
     }
 `
 
@@ -10,6 +11,10 @@ const resolvers = {
     Query: {
         hello() {
             return 'Hello GraphQL! :)'
+        },
+        currentTime() {
+            const time = new Date()
+            return `${time.toLocaleDateString('pt-BR')} ${time.toLocaleTimeString('pt-BR')}`
         }
     }
 }

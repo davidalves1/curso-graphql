@@ -1,0 +1,31 @@
+{
+  "name": "schema-query",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/davidalves1/curso-graphql.git"
+  },
+  "keywords": [
+    "graphql",
+    "node"
+  ],
+  "author": "davidalves1 <alves.david@outlook.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/davidalves1/curso-graphql/issues"
+  },
+  "homepage": "https://github.com/davidalves1/curso-graphql#readme",
+  "dependencies": {
+    "graphql-yoga": "^1.18.3"
+  },
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "nodemon": "^1.19.4"
+  }
+}

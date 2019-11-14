@@ -8,7 +8,8 @@ const typeDefs = `
         currentTime: String
         currentDate: Date
         currentUser: User
-        product: Product
+        featuredProduct: Product
+        lotoNumbers: [Int!]!
     }
 
     type User {
@@ -64,7 +65,7 @@ const resolvers = {
                 vip: false
             }
         },
-        product() {
+        featuredProduct() {
             const discount = Math.round(Math.random() * 10000) / 100
             console.log({discount})
 
@@ -73,6 +74,12 @@ const resolvers = {
                 price: 199.9,
                 discount: discount > 30 ? discount : null 
             }
+        },
+        lotoNumbers() {
+            // retorna um array com 6 posições de números entre 1 e 75
+            return Array(6).fill(0)
+                .map(() => parseInt(Math.random() * 75) + 1)
+                .sort((a, b) => a - b) // a - b ordena em ordem crescente
         }
     }
 }

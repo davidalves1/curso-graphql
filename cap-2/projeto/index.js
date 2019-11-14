@@ -7,10 +7,25 @@ const typeDefs = `
         hello: String
         currentTime: String
         currentDate: Date
+        currentUser: User
+    }
+
+    type User {
+        id: ID!
+        name: String!
+        email: String!
+        age: Int
+        salary: Float
+        vip: Boolean!
     }
 `
 
 const resolvers = {
+    User: {
+        salary(user) {
+            return user.real_salary
+        }
+    },
     Query: {
         hello() {
             return 'Hello GraphQL! :)'
@@ -20,7 +35,17 @@ const resolvers = {
             return `${time.toLocaleDateString('pt-BR')} ${time.toLocaleTimeString('pt-BR')}`
         },
         currentDate() {
-            return new Date
+            return new Date 
+        },
+        currentUser() {
+            return {
+                id: '123132',
+                name: 'David Alves',
+                email: 'alves.david@outlook.com',
+                age: 32,
+                real_salary: Math.round(Math.random() * 1000000) / 100,
+                vip: false
+            }
         }
     }
 }

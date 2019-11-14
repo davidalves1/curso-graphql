@@ -8,6 +8,7 @@ const typeDefs = `
         currentTime: String
         currentDate: Date
         currentUser: User
+        product: Product
     }
 
     type User {
@@ -18,12 +19,28 @@ const typeDefs = `
         salary: Float
         vip: Boolean!
     }
+
+    type Product {
+        name: String!
+        price: Float!
+        discount: Float
+        priceWithDiscount: Float
+    }
 `
 
 const resolvers = {
     User: {
         salary(user) {
             return user.real_salary
+        }
+    },
+    Product: {
+        priceWithDiscount(parent) {
+            if (!parent.discount || parent.discount < 0) {
+                return null
+            }
+
+            return parent.price - parent.discount
         }
     },
     Query: {
@@ -45,6 +62,16 @@ const resolvers = {
                 age: 32,
                 real_salary: Math.round(Math.random() * 1000000) / 100,
                 vip: false
+            }
+        },
+        product() {
+            const discount = Math.round(Math.random() * 10000) / 100
+            console.log({discount})
+
+            return {
+                name: 'Bola Quadrada',
+                price: 199.9,
+                discount: discount > 30 ? discount : null 
             }
         }
     }

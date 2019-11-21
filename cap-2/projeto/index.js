@@ -38,6 +38,7 @@ const typeDefs = `
       featuredProduct: Product
       lotoNumbers: [Int!]!
       allUsers: [User!]!
+      showUser(id: ID): User
     }
 
     type User {
@@ -112,6 +113,11 @@ const resolvers = {
     },
     allUsers() {
       return users;
+    },
+    showUser(_, { id }) {
+      const user = users.filter(user => user.id == id);
+
+      return user ? user[0] : null;
     }
   }
 };

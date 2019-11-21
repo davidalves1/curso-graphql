@@ -27,6 +27,17 @@ const users = [
   }
 ];
 
+const roles = [
+  {
+    id: '1',
+    name: 'Comum'
+  },
+  {
+    id: '2',
+    name: 'Administrador'
+  },
+];
+
 const typeDefs = `
     scalar Date
 
@@ -39,6 +50,8 @@ const typeDefs = `
       lotoNumbers: [Int!]!
       allUsers: [User!]!
       showUser(id: ID): User
+      allRoles: [Role]
+      showRole(id: ID): Role
     }
 
     type User {
@@ -55,6 +68,11 @@ const typeDefs = `
       price: Float!
       discount: Float
       priceWithDiscount: Float
+    }
+
+    type Role {
+      id: ID!
+      name: String!
     }
 `;
 
@@ -115,9 +133,18 @@ const resolvers = {
       return users;
     },
     showUser(_, { id }) {
-      const user = users.filter(user => user.id == id);
+      // O ID é do tipo string, se estiver usando como Int utilizar ==
+      const user = users.find(user => user.id === id);
 
-      return user ? user[0] : null;
+      return user || null;
+    },
+    allRoles() {
+      return roles;
+    },
+    showRole(_, { id }) {
+      const role = roles.find((role) => role.id === id);
+
+      return role || null;
     }
   }
 };

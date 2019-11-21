@@ -29,11 +29,11 @@ const users = [
 
 const roles = [
   {
-    id: '1',
+    id: 1,
     name: 'Comum'
   },
   {
-    id: '2',
+    id: 2,
     name: 'Administrador'
   },
 ];
@@ -51,7 +51,7 @@ const typeDefs = `
       allUsers: [User!]!
       showUser(id: ID): User
       allRoles: [Role]
-      showRole(id: ID): Role
+      showRole(id: Int): Role
     }
 
     type User {
@@ -133,7 +133,7 @@ const resolvers = {
       return users;
     },
     showUser(_, { id }) {
-      // O ID é do tipo string, se estiver usando como Int utilizar ==
+      // O ID é do tipo string, se estiver usando como Int utilizar == ou utilizar o tipo Int ao invés de ID
       const user = users.find(user => user.id === id);
 
       return user || null;

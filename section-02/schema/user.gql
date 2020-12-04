@@ -1,0 +1,14 @@
+type User {
+  id: ID!
+  role: Role
+  name: String!
+  email: String!
+  age: Int
+  salary: Float
+  vip: Boolean!
+}
+
+type Role {
+  id: ID!
+  name: String!
+}

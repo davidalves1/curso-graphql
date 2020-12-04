@@ -1,0 +1,12 @@
+type Query {
+  hello: String
+  currentTime: String
+  currentDate: Date
+  currentUser: User
+  featuredProduct: Product
+  lotoNumbers: [Int!]!
+  allUsers: [User!]!
+  showUser(id: ID): User
+  allRoles: [Role]
+  showRole(id: Int): Role
+}

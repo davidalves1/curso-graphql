@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "nodemon --ext js,gql",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,13 +16,15 @@
     "node"
   ],
   "author": "davidalves1 <alves.david@outlook.com>",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/davidalves1/curso-graphql/issues"
   },
   "homepage": "https://github.com/davidalves1/curso-graphql#readme",
   "dependencies": {
-    "graphql-yoga": "^1.18.3"
+    "apollo-server": "^2.19.0",
+    "graphql": "^15.4.0",
+    "graphql-import": "^1.0.2"
   },
   "devDependencies": {
     "eslint": "^6.6.0",

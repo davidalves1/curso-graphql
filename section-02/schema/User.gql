@@ -5,7 +5,13 @@ type User {
   email: String!
   age: Int
   salary: Float
-  vip: Boolean!
+  status: UserStatus
+}
+
+enum UserStatus {
+  ACTIVE
+  INACTIVE
+  BLOCKED
 }
 
 type Role {

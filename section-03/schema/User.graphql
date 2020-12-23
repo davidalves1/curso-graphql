@@ -1,0 +1,25 @@
+type Role {
+  id: Int
+  name: String
+}
+
+enum UserStatus {
+  ATIVO
+  INATIVO
+  BLOQUEADO
+}
+
+type User {
+  id: Int
+  name: String!
+  email: String!
+  age: Int
+  role: Role
+  status: UserStatus
+}
+
+input UserInput {
+  name: String
+  email: String
+  age: Int
+}

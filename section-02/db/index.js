@@ -6,7 +6,7 @@ const users = [
     email: 'alves.david@outlook.com',
     age: 32,
     real_salary: Math.round(Math.random() * 1000000) / 100,
-    vip: true,
+    status: 'ACTIVE',
   },
   {
     id: '64654321',
@@ -15,7 +15,7 @@ const users = [
     email: 'alves.jose@email.com',
     age: 42,
     real_salary: Math.round(Math.random() * 1000000) / 100,
-    vip: false,
+    status: 'INACTIVE',
   },
   {
     id: '6543216',
@@ -24,7 +24,7 @@ const users = [
     email: 'alves.joao@email.com',
     age: 22,
     real_salary: Math.round(Math.random() * 1000000) / 100,
-    vip: false,
+    status: 'BLOCKED',
   },
 ];
 

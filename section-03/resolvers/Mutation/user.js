@@ -1,5 +1,5 @@
-const { users, nextId } = require('../data/db')
-const { getUserIndexByFilter } = require('../services/user')
+const { users, nextId } = require('../../data/db')
+const { getUserIndexByFilter } = require('../../services/user')
 
 module.exports = {
   createUser(_, { data }) {

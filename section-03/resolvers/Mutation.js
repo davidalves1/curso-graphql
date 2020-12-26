@@ -1,4 +1,5 @@
 const { users, nextId } = require('../data/db')
+const { getUserIndexByFilter } = require('../services/user')
 
 module.exports = {
   createUser(_, { data }) {
@@ -16,20 +17,20 @@ module.exports = {
     users.push(user)
     return user
   },
-  updateUser(_, args) {
-    const userIndex = users.findIndex(user => user.id === args.id)
+  updateUser(_, { filter, data }) {
+    const userIndex = getUserIndexByFilter(filter)
     if (0 > userIndex) return null
 
     const user = {
       ...users[userIndex],
-      ...args,
+      ...data,
     }
 
     users.splice(userIndex, 1, user)
     return user
   },
-  deleteUser(_, { id }) {
-    const userIndex = users.findIndex(user => user.id === id)
+  deleteUser(_, { filter }) {
+    const userIndex = getUserIndexByFilter(filter)
     if (0 > userIndex) return null
 
     const [deletedUser] = users.splice(userIndex, 1)
